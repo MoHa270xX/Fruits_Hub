@@ -1,31 +1,47 @@
-import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruits_hub/core/helpers/spacing.dart';
-import 'package:fruits_hub/core/utils/app_colors.dart';
-import 'package:fruits_hub/core/widgets/app_text_button.dart';
+import 'package:fruits_hub/features/onBoarding/presentation/widgets/dots_indicator.dart';
+import 'package:fruits_hub/features/onBoarding/presentation/widgets/get_started_button.dart';
 import 'package:fruits_hub/features/onBoarding/presentation/widgets/on_boarding_page_view.dart';
 
-class OnboardingPageBody extends StatelessWidget {
+class OnboardingPageBody extends StatefulWidget {
   const OnboardingPageBody({super.key});
+
+  @override
+  State<OnboardingPageBody> createState() => _OnboardingPageBodyState();
+}
+
+class _OnboardingPageBodyState extends State<OnboardingPageBody> {
+  late PageController pageController;
+  var currentPage = 0;
+  @override
+  void initState() {
+    pageController = PageController();
+    pageController.addListener(() {
+      currentPage = pageController.page!.round();
+      setState(() {
+        
+      });
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Expanded(child: OnBoardingPageView()),
-        DotsIndicator(dotsCount: 2,decorator: DotsDecorator(
-          activeColor: AppColors.primaryColor,
-          color: AppColors.primaryColor.withOpacity(.5),
-        ),),
+        Expanded(child: OnBoardingPageView(pageController: pageController,)),
+       DotsIndicatorWidget(currentPage: currentPage,),
         verticalSpace(30),
-        Padding(
-          padding:  EdgeInsets.symmetric(horizontal: 16.w),
-          child: AppTextButton(buttonText: "ابدا الان ", textStyle: TextStyle(color: Colors.white), onPressed:(){},borderRadius: 16,),
-        ),
+       GetStartedButton(currentPage: currentPage,),
         verticalSpace(42),
       ],
-      
     );
   }
 }

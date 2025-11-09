@@ -30,7 +30,9 @@ class FruitsHub extends StatelessWidget {
               locale: Locale('ar'),
         debugShowCheckedModeBanner: false,
         title: 'Fruits App',
-        theme: ThemeData(),
+        theme: ThemeData(
+          fontFamily: 'Cairo'
+        ),
         routerConfig: AppRouter.router,
       ),
     );
