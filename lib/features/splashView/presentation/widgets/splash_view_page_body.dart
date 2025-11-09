@@ -27,7 +27,7 @@ class _SplashViewPageBodyState extends State<SplashViewPageBody> {
     
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
             SvgPicture.asset(Assets.imagesPlant),
           ],
