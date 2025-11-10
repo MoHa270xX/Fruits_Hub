@@ -5,8 +5,9 @@ import 'package:fruits_hub/core/utils/app_text_styles.dart';
 import 'package:fruits_hub/core/widgets/app_text_button.dart';
 
 class GetStartedButton extends StatelessWidget {
-  const GetStartedButton({super.key, required this.currentPage});
+ const GetStartedButton({super.key, required this.currentPage, required this.onPressed});
   final int currentPage;
+   final void Function() onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class GetStartedButton extends StatelessWidget {
             
               buttonText:AppStrings.getStartedButton ,
               textStyle: AppTextStyles.bold16.copyWith(color: Colors.white),
-              onPressed: () {},
+              onPressed: onPressed ,
               borderRadius: 16.r,
               
             ),

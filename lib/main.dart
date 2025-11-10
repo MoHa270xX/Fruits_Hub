@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruits_hub/core/app_router/app_router.dart';
+import 'package:fruits_hub/core/services/shared_pref.dart';
 import 'package:fruits_hub/generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Prefs.init();
  
   runApp(const FruitsHub());
 }

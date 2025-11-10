@@ -1,6 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:fruits_hub/core/app_router/app_router.dart';
+import 'package:fruits_hub/core/services/shared_pref.dart';
 import 'package:fruits_hub/core/utils/assets.dart';
+import 'package:fruits_hub/core/utils/constants.dart';
 import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
 
@@ -41,9 +43,17 @@ class _SplashViewPageBodyState extends State<SplashViewPageBody> {
   
  void excuteNavigation() {
   Future.delayed(const Duration(seconds: 3), () {
-    if (mounted) {
-      context.goNamed(Routes.onboardingName);
+    bool isOnBoradingViewSeen=Prefs.getBool(kIsOnBoradingViewSeen);
+    if(isOnBoradingViewSeen)
+    {
+        context.goNamed(Routes.loginPageName);
+
     }
+    else{
+        context.goNamed(Routes.onboardingName);
+    }
+
+   
   });
 }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_hub/core/helpers/spacing.dart';
+import 'package:fruits_hub/core/services/shared_pref.dart';
+import 'package:fruits_hub/core/utils/constants.dart';
 import 'package:fruits_hub/features/onBoarding/presentation/widgets/dots_indicator.dart';
 import 'package:fruits_hub/features/onBoarding/presentation/widgets/get_started_button.dart';
 import 'package:fruits_hub/features/onBoarding/presentation/widgets/on_boarding_page_view.dart';
@@ -39,7 +41,9 @@ class _OnboardingPageBodyState extends State<OnboardingPageBody> {
         Expanded(child: OnBoardingPageView(pageController: pageController,)),
        DotsIndicatorWidget(currentPage: currentPage,),
         verticalSpace(30),
-       GetStartedButton(currentPage: currentPage,),
+       GetStartedButton(currentPage: currentPage,onPressed: () {
+         Prefs.setBool(kIsOnBoradingViewSeen,true);
+       },),
         verticalSpace(42),
       ],
     );
