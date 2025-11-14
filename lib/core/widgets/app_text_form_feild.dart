@@ -57,7 +57,7 @@ class AppTextFormField extends StatelessWidget {
             focusedBorder ??
             OutlineInputBorder(
               borderSide: BorderSide(
-                color: AppColors.grayColor,
+                color: AppColors.borderTextFormColor.withOpacity(0.5),
                 width: 1.3.w,
               ),
               borderRadius: borderRadius ?? BorderRadius.circular(0),
@@ -67,7 +67,7 @@ class AppTextFormField extends StatelessWidget {
             enabledBorder ??
             OutlineInputBorder(
               borderSide: BorderSide(
-                color: AppColors.grayColor,
+                color: AppColors.borderTextFormColor.withOpacity(0.5),
                 width: 1.3.w,
               ),
               borderRadius: borderRadius ?? BorderRadius.circular(0),
@@ -86,9 +86,10 @@ class AppTextFormField extends StatelessWidget {
         hintStyle: hintStyle ?? AppTextStyles.regular13,
         hintText: hintText,
         suffixIcon: suffixIcon,
+        suffixIconColor: AppColors.textFormColor,
         prefixIcon: prefixIcon,
-        prefixIconColor: AppColors.grayColor,
-        fillColor: backgroundColor ?? AppColors.grayColor,
+        prefixIconColor: Colors.blueAccent,
+        fillColor: backgroundColor ?? AppColors.backgroundTextFormColor,
         filled: true,
       ),
       obscureText: isObscureText ?? false,

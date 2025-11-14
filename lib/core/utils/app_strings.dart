@@ -21,7 +21,7 @@ class AppStrings {
   static const String forgotPassword = 'نسيت كلمة المرور؟';
   static const String loginButton = 'تسجيل دخول';
   static const String orSeparator = 'أو';
-  static const String noAccountPrompt = 'لا تملك حسابًا؟';
+  static const String noAccountPrompt = 'لا تمتلك حساب؟';
   static const String createAccountLink = ' قم بإنشاء حساب';
   static const String loginWithGoogle = 'تسجيل بواسطة جوجل';
   static const String loginWithApple = 'تسجيل بواسطة أبل';
@@ -33,11 +33,11 @@ class AppStrings {
   static const String createAccountButton = 'إنشاء حساب جديد';
   static const String termsAndConditionsPrefix = 'من خلال إنشاء حساب، فإنك توافق على ';
   static const String termsAndConditionsLink = 'الشروط والأحكام الخاصة بنا';
-  static const String haveAccountPrompt = 'تملك حسابًا بالفعل؟';
+  static const String haveAccountPrompt = 'تمتلك حساب بالفعل؟';
   static const String loginLink = ' تسجيل الدخول'; // Note the leading space for concatenation
 
   // --- Forgot Password Screen Strings ---
   static const String forgotPasswordTitle = 'نسيان كلمة المرور';
-  static const String forgotPasswordInstructions = 'لا تقلق، ما عليك سوى كتابة رقم هاتفك وسنرسل رمز التحقق.';
+  static const String forgotPasswordInstructions = 'لا تقلق، ما عليك سوى كتابة بريدك الإلكتروني  وسنرسل رمز التحقق.';
   static const String resetPasswordButton = 'نسيت كلمة المرور'; // Button text is often the same as the screen title in UI
 }

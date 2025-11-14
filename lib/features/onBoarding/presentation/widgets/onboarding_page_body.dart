@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_hub/core/app_router/app_router.dart';
 import 'package:fruits_hub/core/helpers/spacing.dart';
 import 'package:fruits_hub/core/services/shared_pref.dart';
 import 'package:fruits_hub/core/utils/constants.dart';
 import 'package:fruits_hub/features/onBoarding/presentation/widgets/dots_indicator.dart';
 import 'package:fruits_hub/features/onBoarding/presentation/widgets/get_started_button.dart';
 import 'package:fruits_hub/features/onBoarding/presentation/widgets/on_boarding_page_view.dart';
+import 'package:go_router/go_router.dart';
 
 class OnboardingPageBody extends StatefulWidget {
   const OnboardingPageBody({super.key});
@@ -43,6 +45,7 @@ class _OnboardingPageBodyState extends State<OnboardingPageBody> {
         verticalSpace(30),
        GetStartedButton(currentPage: currentPage,onPressed: () {
          Prefs.setBool(kIsOnBoradingViewSeen,true);
+         context.goNamed(Routes.loginPageName);
        },),
         verticalSpace(42),
       ],

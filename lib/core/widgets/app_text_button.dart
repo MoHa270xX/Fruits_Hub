@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruits_hub/core/helpers/spacing.dart';
 import 'package:fruits_hub/core/utils/app_colors.dart';
+import 'package:svg_flutter/svg.dart';
 
 class AppTextButton extends StatelessWidget {
   final double? borderRadius;
@@ -12,6 +14,8 @@ class AppTextButton extends StatelessWidget {
   final String buttonText;
   final TextStyle textStyle;
   final VoidCallback onPressed;
+  final Color? borderColor;
+  final String? imagePath;
   const AppTextButton({
     super.key,
     this.borderRadius,
@@ -22,7 +26,7 @@ class AppTextButton extends StatelessWidget {
     this.buttonWidth,
     required this.buttonText,
     required this.textStyle,
-    required this.onPressed,
+    required this.onPressed, this.borderColor, this.imagePath,
   });
 
   @override
@@ -31,7 +35,10 @@ class AppTextButton extends StatelessWidget {
       style: ButtonStyle(
         shape: WidgetStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(borderRadius ?? 16.0),
+            borderRadius: BorderRadius.circular(borderRadius ?? 16.0.r),
+            side: BorderSide(
+              color:borderColor ?? AppColors.primaryColor,
+            ),
           ),
         ),
         backgroundColor: WidgetStatePropertyAll(
@@ -48,7 +55,24 @@ class AppTextButton extends StatelessWidget {
         ),
       ),
       onPressed: onPressed,
-      child: Text(buttonText, style: textStyle),
+      child: imagePath != null ? Row(
+        children: [
+          horizontalSpace(16.w),
+         SvgPicture.asset(
+            imagePath!,
+            width: 24.w,
+            height: 24.h,
+          ),
+          horizontalSpace( 53.w,),
+          Text(
+            buttonText,
+            style: textStyle,
+          ),
+        ],
+      ) : Text(
+        buttonText,
+        style: textStyle,
+      ),
     );
   }
 }
